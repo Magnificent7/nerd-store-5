@@ -1,0 +1,9 @@
+<h2>New image for <%= @product.name %></h2>
+
+<%= form_tag "/products/#{@product.id}/images", method: :post do %>
+  <div>
+    <%= label_tag :url %>
+    <%= text_field_tag :url %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>
