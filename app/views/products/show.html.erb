@@ -3,7 +3,11 @@
       <div class="col-sm-8 col-sm-offset-2">
         <div class="product_single">
             <h2><%= @product.name %></h2>
+            <h4>Supplied by: <%= @product.supplier.name %></h4>
+            <p><%= @product.sale_message %></p>
             <p>Price: <%= @product.price %></p>
+            <p>Tax: <%= @product.tax %></p>
+            <p>Total: <%= @product.total %></p>
             <img src="<%= @product.image %>" alt="<%= @product.name %>" class="img-responsive">
             <p>Description: <%= @product.description %></p>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
