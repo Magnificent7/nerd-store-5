@@ -1,5 +1,12 @@
 class ProductsController < ApplicationController
   def index
+
+    if session[:count] == nil
+      session[:count] = 0
+    end
+    session[:count] += 1
+    @visits = session[:count]
+
     @products = Product.all
     sort_attribute = params[:sort]
     sort_order = params[:order]
@@ -21,8 +28,8 @@ class ProductsController < ApplicationController
     @product = Product.create(
       name: params[:name],
       description: params[:description],
-      image: params[:image],
-      price: params[:price]
+      price: params[:price],
+      supplier_id: params[:supplier]["supplier_id"]
     )
     flash[:success] = "Product Created"
     redirect_to "/products/#{@product.id}"
