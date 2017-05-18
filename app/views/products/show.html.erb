@@ -17,6 +17,24 @@
             <%= link_to "Add Image", "/products/#{@product.id}/images/new", class: "btn btn-primary" %>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+
+            <!-- NEW ORDER FORM -->
+            <div>
+              <h4>New Order:</h4>
+              <%= form_tag '/orders', method: :post do %>
+                <div>
+                  <%= label_tag :quantity %>
+                  <%= number_field_tag :quantity %>
+                </div>
+                <div>
+                  <%= label_tag :product_id %>
+                  <%= number_field_tag :product_id %>
+                </div>
+                <%= submit_tag "Buy Now!" %>
+              <% end %>
+            </div>
+            <!-- END ORDER FORM -->
+
         </div>
       </div>
     </div>
