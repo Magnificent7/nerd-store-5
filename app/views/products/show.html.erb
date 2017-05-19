@@ -27,8 +27,7 @@
                   <%= number_field_tag :quantity %>
                 </div>
                 <div>
-                  <%= label_tag :product_id %>
-                  <%= number_field_tag :product_id %>
+                  <%= hidden_field_tag :product_id, @product.id %>
                 </div>
                 <%= submit_tag "Buy Now!" %>
               <% end %>
