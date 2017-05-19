@@ -17,6 +17,9 @@ class ProductsController < ApplicationController
     if discount
       @products = Product.where("price < ?", "3")
     end
+    if params[:category]
+      @products = Category.find_by(title: params[:category]).products
+    end
     render "index.html.erb"
   end
 

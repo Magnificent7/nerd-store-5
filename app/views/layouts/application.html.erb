@@ -38,7 +38,11 @@
             <li><a href="/?discount=true">Discount Items</a></li>
             <li><a href="/products/random">Random Product</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.title %>">All <%= category.title %></a></li>
+            <% end %>
+
           </ul>
         </li>
       </ul>
