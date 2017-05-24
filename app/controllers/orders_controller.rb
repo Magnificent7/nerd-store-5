@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     product_id = params[:product_id]
     quantity = params[:quantity].to_i
