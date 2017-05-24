@@ -14,9 +14,12 @@
             <% end %>
 
             <p>Description: <%= @product.description %></p>
-            <%= link_to "Add Image", "/products/#{@product.id}/images/new", class: "btn btn-primary" %>
-            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
-            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+
+            <% if current_user && current_user.admin %>
+              <%= link_to "Add Image", "/products/#{@product.id}/images/new", class: "btn btn-primary" %>
+              <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+              <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <% end %>
 
             <!-- NEW CARTED PRODUCT FORM -->
             <div>

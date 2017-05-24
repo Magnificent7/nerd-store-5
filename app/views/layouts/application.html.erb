@@ -32,7 +32,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Add New Product", "products/new", class: "btn btn-default" %></li>
+            <% if current_user && current_user.admin %>
+              <li><%= link_to "Add New Product", "products/new", class: "btn btn-default" %></li>
+            <% end %>
+
             <li><a href="/?sort=price&&order=asc">Sort by Price low->high</a></li>
             <li><a href="/?sort=price&&order=desc">Sort by Price high->low</a></li>
             <li><a href="/?discount=true">Discount Items</a></li>
