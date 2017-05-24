@@ -18,10 +18,10 @@
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
 
-            <!-- NEW ORDER FORM -->
+            <!-- NEW CARTED PRODUCT FORM -->
             <div>
-              <h4>New Order:</h4>
-              <%= form_tag '/orders', method: :post do %>
+              <h4>Add Item To Cart:</h4>
+              <%= form_tag '/carted_products', method: :post do %>
                 <div>
                   <%= label_tag :quantity %>
                   <%= number_field_tag :quantity %>
@@ -29,10 +29,10 @@
                 <div>
                   <%= hidden_field_tag :product_id, @product.id %>
                 </div>
-                <%= submit_tag "Buy Now!" %>
+                <%= submit_tag "Add to Cart!" %>
               <% end %>
             </div>
-            <!-- END ORDER FORM -->
+            <!-- END CARTED PRODUCT FORM -->
 
         </div>
       </div>

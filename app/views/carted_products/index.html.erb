@@ -1,0 +1,15 @@
+<h1>My Cart:</h1>
+
+<% @carted_products.each do |carted_product| %>
+  <div>
+    <p>Product Name: <%= carted_product.product.name %></p>
+    <p>Quantity: <%= carted_product.quantity %></p>
+    <%= link_to "Remove", "/carted_products/#{carted_product.id}", {method: :delete, class: "btn btn-danger" }%>
+  </div>
+<% end %>
+
+<div>
+  <%= form_tag "/orders/#{@order.id}", method: :patch do %>
+    <%= submit_tag "Buy Now" %>
+  <% end %>
+</div>
