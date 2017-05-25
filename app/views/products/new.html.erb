@@ -1,3 +1,14 @@
+    <div>
+      <% if @product && @product.errors.any? %>
+        <h3><%= @product.errors.count %> errors prohibited this product from being saved</h3>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
     <section>
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
@@ -15,7 +26,6 @@
               </div>
                 <%= label_tag :supplier %>
                 <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %>
-              </div>
 
               <input type="submit" value="Process New Nerdiness">
             <% end %>
